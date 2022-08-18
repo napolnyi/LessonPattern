@@ -4,25 +4,20 @@
 #include <stdint.h>
 #include <time.h> 
 
-class ScreenSingleton
-{
-public:
-	static ScreenSingleton& getInstance() {	
-		static ScreenSingleton theInstance;
-		return theInstance;
-	}
-    void ClrScr()
+
+   
+void ScreenSingleton::ClrScr()
     {
         system("cls");
     }
 
-    void __fastcall GotoXY(double x, double y)
+    void __fastcall ScreenSingleton::GotoXY(double x, double y)
     {
         const COORD cc = { short(x), short(y) };
         SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), cc);
     }
 
-    uint16_t GetMaxX()
+    uint16_t ScreenSingleton::GetMaxX()
     {
         HANDLE hWndConsole;
         if (hWndConsole = GetStdHandle(-12))
@@ -38,7 +33,7 @@ public:
         return 0;
     }
 
-    uint16_t GetMaxY()
+    uint16_t ScreenSingleton::GetMaxY()
     {
         HANDLE hWndConsole;
         if (hWndConsole = GetStdHandle(-12))
@@ -53,14 +48,11 @@ public:
         return 0;
     }
 
-    void SetColor(ConsoleColor color)
+    void ScreenSingleton::SetColor(ConsoleColor color)
     {
         HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
         SetConsoleTextAttribute(hConsole, color); // color =  (WORD)((BackgroundColor << 4) | TextColor))
     }
 
-private:
-	ScreenSingleton() {}
-	ScreenSingleton(const ScreenSingleton& root) = delete;
-	ScreenSingleton& operator =(const ScreenSingleton& root) = delete;
-};
+
+

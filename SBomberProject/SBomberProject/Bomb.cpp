@@ -10,6 +10,6 @@ using namespace std;
 void Bomb::Draw() const
 {
     ScreenSingleton::getInstance().SetColor(CC_LightMagenta);
-    GotoXY(x, y);
+    ScreenSingleton::getInstance().GotoXY(x, y);
     cout << "*";
 }
