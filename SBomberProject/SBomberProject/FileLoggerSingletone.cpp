@@ -31,26 +31,28 @@ std::string GetCurDateTime()
     return std::string(buf);
 }
 
-void __fastcall FileLoggerSingletone::WriteToLog(const std::string& str)
+void __fastcall FileLoggerSingletone::WriteToLog(const std::string& str, int counter)
 {
     if (logOut.is_open())
     {
-        logOut << GetCurDateTime() << " - " << str << std::endl;
+        logOut << counter << "." << GetCurDateTime() << " - " << str << std::endl;
     }
 }
 
-void __fastcall FileLoggerSingletone::WriteToLog(const std::string& str, int n)
+void __fastcall FileLoggerSingletone::WriteToLog(const std::string& str, int n, int counter)
 {
     if (logOut.is_open())
     {
-        logOut << GetCurDateTime() << " - " << str << n << std::endl;
+        logOut << counter << "." << GetCurDateTime() << " - " << str << n << std::endl;
     }
 }
 
-void __fastcall FileLoggerSingletone::WriteToLog(const std::string& str, double d)
+void __fastcall FileLoggerSingletone::WriteToLog(const std::string& str, double d, int counter)
 {
     if (logOut.is_open())
     {
-        logOut << GetCurDateTime() << " - " << str << d << std::endl;
+        logOut << counter << "." << GetCurDateTime() << " - " << str << d << std::endl;
     }
 }
+
+

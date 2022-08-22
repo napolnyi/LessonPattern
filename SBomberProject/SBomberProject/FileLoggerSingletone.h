@@ -14,11 +14,13 @@ public:
 
 	void CloseLogFile();
 
-	void __fastcall WriteToLog(const std::string& str);
+	void __fastcall WriteToLog(const std::string& str, int counter);
 
-	void __fastcall WriteToLog(const std::string& str, int n);
+	void __fastcall WriteToLog(const std::string& str, int n, int counter);
 
-	void __fastcall WriteToLog(const std::string& str, double d);
+	void __fastcall WriteToLog(const std::string& str, double d, int counter);
+
+
 
 private:
 	FileLoggerSingletone() {}
