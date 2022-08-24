@@ -6,6 +6,7 @@
 #include "FileLoggerSingletone.h"
 
 
+
 using namespace std;
 
 //========================================================================================================================
@@ -31,6 +32,7 @@ int main(void)
         game.CheckObjects();
 
         game.TimeFinish();
+       
 
     } while (!game.GetExitFlag());
 

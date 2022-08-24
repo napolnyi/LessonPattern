@@ -31,8 +31,8 @@ private:
     void CheckBombsAndGround();
     void __fastcall CheckDestoyableObjects(Bomb* pBomb);
 
-    void __fastcall DeleteDynamicObj(DynamicObject * pBomb);
-    void __fastcall DeleteStaticObj(GameObject* pObj);
+    //void __fastcall DeleteDynamicObj(DynamicObject * pBomb);
+    //void __fastcall DeleteStaticObj(GameObject* pObj);
 
     Ground * FindGround() const;
     Plane * FindPlane() const;

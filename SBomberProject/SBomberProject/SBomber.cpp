@@ -9,6 +9,9 @@
 #include "Tank.h"
 #include "House.h"
 #include "ScreenSingleton.h"
+#include "Invoker.h"
+#include "DeleteDynamicObjCommand.h"
+#include "DeleteStaticObjCommand.h"
 
 using namespace std;
 
@@ -133,7 +136,8 @@ void SBomber::CheckBombsAndGround()
         {
             pGround->AddCrater(vecBombs[i]->GetX());
             CheckDestoyableObjects(vecBombs[i]);
-            DeleteDynamicObj(vecBombs[i]);
+            //DeleteDynamicObj(vecBombs[i]);
+            Invoker(new DeleteDynamicObjCommand(vecBombs[i], vecDynamicObj)).DeleteDynamicObj();
         }
     }
 
@@ -151,36 +155,37 @@ void SBomber::CheckDestoyableObjects(Bomb * pBomb)
         if (vecDestoyableObjects[i]->isInside(x1, x2))
         {
             score += vecDestoyableObjects[i]->GetScore();
-            DeleteStaticObj(vecDestoyableObjects[i]);
+            //DeleteStaticObj(vecDestoyableObjects[i]);
+            Invoker(new DeleteStaticObjCommand(vecDestoyableObjects[i], vecStaticObj)).DeleteStaticObj();
         }
     }
 }
 
-void SBomber::DeleteDynamicObj(DynamicObject* pObj)
-{
-    auto it = vecDynamicObj.begin();
-    for (; it != vecDynamicObj.end(); it++)
-    {
-        if (*it == pObj)
-        {
-            vecDynamicObj.erase(it);
-            break;
-        }
-    }
-}
+//void SBomber::DeleteDynamicObj(DynamicObject* pObj)
+//{
+//    auto it = vecDynamicObj.begin();
+//    for (; it != vecDynamicObj.end(); it++)
+//    {
+//        if (*it == pObj)
+//        {
+//            vecDynamicObj.erase(it);
+//            break;
+//        }
+//    }
+//}
 
-void SBomber::DeleteStaticObj(GameObject* pObj)
-{
-    auto it = vecStaticObj.begin();
-    for (; it != vecStaticObj.end(); it++)
-    {
-        if (*it == pObj)
-        {
-            vecStaticObj.erase(it);
-            break;
-        }
-    }
-}
+//void SBomber::DeleteStaticObj(GameObject* pObj)
+//{
+//    auto it = vecStaticObj.begin();
+//    for (; it != vecStaticObj.end(); it++)
+//    {
+//        if (*it == pObj)
+//        {
+//            vecStaticObj.erase(it);
+//            break;
+//        }
+//    }
+//}
 
 vector<DestroyableGroundObject*> SBomber::FindDestoyableGroundObjects() const
 {
