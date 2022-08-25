@@ -7,9 +7,9 @@ class DeleteStaticObjCommand :
 {
 private:
     GameObject* _pObj;
-    std::vector<GameObject*> _vecStaticObj;
+    std::vector<GameObject*>& _vecStaticObj;
 public:
-    DeleteStaticObjCommand(GameObject* pObj, std::vector<GameObject*> vecStaticObj) : 
+    DeleteStaticObjCommand(GameObject* pObj, std::vector<GameObject*>& vecStaticObj) : 
         _pObj(pObj), _vecStaticObj(vecStaticObj) {}
     void Execute() override;
 };

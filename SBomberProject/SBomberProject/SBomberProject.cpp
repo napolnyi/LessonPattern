@@ -1,5 +1,6 @@
 ﻿
 #include <conio.h>
+#include <Windows.h>
 
 #include "SBomber.h"
 #include "ScreenSingleton.h" 
@@ -32,6 +33,7 @@ int main(void)
         game.CheckObjects();
 
         game.TimeFinish();
+        Sleep(30);
        
 
     } while (!game.GetExitFlag());

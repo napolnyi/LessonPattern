@@ -143,6 +143,7 @@
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="DeleteDynamicObjCommand.cpp" />
     <ClCompile Include="DeleteStaticObjCommand.cpp" />
+    <ClCompile Include="DropBombCommand.cpp" />
     <ClCompile Include="FileLoggerSingletone.cpp" />
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="House.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="Command.h" />
     <ClInclude Include="DeleteDynamicObjCommand.h" />
     <ClInclude Include="DeleteStaticObjCommand.h" />
+    <ClInclude Include="DropBombCommand.h" />
     <ClInclude Include="FileLoggerSingletone.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="DynamicObject.h" />

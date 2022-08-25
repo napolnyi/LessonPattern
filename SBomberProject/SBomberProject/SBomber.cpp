@@ -12,6 +12,7 @@
 #include "Invoker.h"
 #include "DeleteDynamicObjCommand.h"
 #include "DeleteStaticObjCommand.h"
+#include "DropBombCommand.h"
 
 using namespace std;
 
@@ -23,7 +24,7 @@ SBomber::SBomber()
     deltaTime(0),
     passedTime(0),
     fps(0),
-    bombsNumber(10),
+    bombsNumber(20),
     score(0)
 {
     FileLoggerSingletone::getInstance().WriteToLog(string(__FUNCTION__) + " was invoked");
@@ -282,6 +283,9 @@ void SBomber::ProcessKBHit()
     }
 
     FileLoggerSingletone::getInstance().WriteToLog(string(__FUNCTION__) + " was invoked. key = ", c);
+    
+    DropBombCommand* dropBombCommand = new DropBombCommand(FindPlane(), vecDynamicObj, bombsNumber, score);
+    Invoker* invDropBomb = new Invoker(dropBombCommand);
 
     switch (c) {
 
@@ -298,11 +302,15 @@ void SBomber::ProcessKBHit()
         break;
 
     case 'b':
-        DropBomb();
+        
+        invDropBomb->DropBomb();
+        //DropBomb();
         break;
 
     case 'B':
-        DropBomb();
+
+        invDropBomb->DropBomb();
+       //DropBomb();
         break;
 
     default:
