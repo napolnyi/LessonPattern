@@ -9,6 +9,7 @@
 #include "Tank.h"
 #include "House.h"
 #include "ScreenSingleton.h"
+#include "BombDecorator.h"
 
 using namespace std;
 
@@ -362,7 +363,9 @@ void SBomber::DropBomb()
         pBomb->SetPos(x, y);
         pBomb->SetWidth(SMALL_CRATER_SIZE);
 
-        vecDynamicObj.push_back(pBomb);
+        BombDecorator* pBombDecorator = new BombDecorator(pBomb);
+        vecDynamicObj.push_back(pBombDecorator);
+       
         bombsNumber--;
         score -= Bomb::BombCost;
     }

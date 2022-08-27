@@ -10,7 +10,8 @@ public:
 
 	void Draw() const override;
 
-private:
+	void Move(uint16_t time) override;
+
 
 };
 

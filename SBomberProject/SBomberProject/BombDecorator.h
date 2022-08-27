@@ -1,24 +1,18 @@
 #pragma once
 #include "DynamicObject.h"
+#include "Bomb.h"
 
 class BombDecorator :
     public DynamicObject
 {
 public:
     void Draw() const override;
-    void Move(uint16_t time);
+    void Move(uint16_t time) override;
     
-    inline void SetPos(double nx, double ny);
-    
-    inline double GetY() const { return y; }
-    inline double GetX() const { return x; }
- 
-    inline void SetWidth(uint16_t widthN) { width = widthN; }
-   
-    inline uint16_t GetWidth();
+    BombDecorator(Bomb* bomb) : _bomb(bomb) {};
 
 private:
-    Bomb* bomb;
+    Bomb* _bomb;
  
 };
 
