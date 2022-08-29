@@ -9,6 +9,7 @@
 #include "Tank.h"
 #include "House.h"
 
+
 using namespace std;
 using namespace MyTools;
 
@@ -123,18 +124,29 @@ void SBomber::CheckPlaneAndLevelGUI()
 
 void SBomber::CheckBombsAndGround() 
 {
-    vector<Bomb*> vecBombs = FindAllBombs();
+    //vector<Bomb*> vecBombs = FindAllBombs();
+    itBomb = BombIterator(vecDynamicObj);
     Ground* pGround = FindGround();
     const double y = pGround->GetY();
-    for (size_t i = 0; i < vecBombs.size(); i++)
+    for ( ; itBomb != vecDynamicObj.end() ,++itBomb )
     {
-        if (vecBombs[i]->GetY() >= y) // Пересечение бомбы с землей
+        if (itBomb->GetY() >= y) // Пересечение бомбы с землей
         {
             pGround->AddCrater(vecBombs[i]->GetX());
             CheckDestoyableObjects(vecBombs[i]);
             DeleteDynamicObj(vecBombs[i]);
         }
     }
+
+    //for (size_t i = 0; i < vecBombs.size(); i++)
+    //{
+    //    if (vecBombs[i]->GetY() >= y) // Пересечение бомбы с землей
+    //    {
+    //        pGround->AddCrater(vecBombs[i]->GetX());
+    //        CheckDestoyableObjects(vecBombs[i]);
+    //        DeleteDynamicObj(vecBombs[i]);
+    //    }
+    //}
 
 }
 
@@ -222,9 +234,27 @@ Ground* SBomber::FindGround() const
     return nullptr;
 }
 
+//vector<Bomb*> SBomber::FindAllBombs() const
+//{
+//    vector<Bomb*> vecBombs;
+//
+//    for (size_t i = 0; i < vecDynamicObj.size(); i++)
+//    {
+//        Bomb* pBomb = dynamic_cast<Bomb*>(vecDynamicObj[i]);
+//        if (pBomb != nullptr)
+//        {
+//            vecBombs.push_back(pBomb);
+//        }
+//    }
+//
+//    return vecBombs;
+//}
+
 vector<Bomb*> SBomber::FindAllBombs() const
 {
     vector<Bomb*> vecBombs;
+    
+    BombIterator itBomb = 
 
     for (size_t i = 0; i < vecDynamicObj.size(); i++)
     {
@@ -237,6 +267,7 @@ vector<Bomb*> SBomber::FindAllBombs() const
 
     return vecBombs;
 }
+
 
 Plane* SBomber::FindPlane() const
 {
@@ -365,4 +396,18 @@ void SBomber::DropBomb()
         bombsNumber--;
         score -= Bomb::BombCost;
     }
+}
+
+BombIterator SBomber::begin()
+{
+    BombIterator it(vecDynamicObj);
+
+    return it;
+}
+
+BombIterator SBomber::end()
+{
+    BombIterator it(vecDynamicObj);
+    it.reset();
+    return it;
 }
