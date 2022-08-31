@@ -39,7 +39,7 @@ private:
     Plane * FindPlane() const;
     LevelGUI * FindLevelGUI() const;
     std::vector<DestroyableGroundObject*> FindDestoyableGroundObjects() const;
-    std::vector<Bomb*> FindAllBombs() const;
+    //std::vector<Bomb*> FindAllBombs() const;
 
     void DropBomb();
 
@@ -52,7 +52,7 @@ private:
     uint16_t bombsNumber, deltaTime, fps;
     int16_t score;
     
-    BombIterator itBomb;
+    
     BombIterator begin();
     BombIterator end();
 };

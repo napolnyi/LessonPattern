@@ -126,17 +126,18 @@ void SBomber::CheckPlaneAndLevelGUI()
 void SBomber::CheckBombsAndGround() 
 {
     //vector<Bomb*> vecBombs = FindAllBombs();
-    itBomb = BombIterator(vecDynamicObj);
+    BombIterator itBomb = BombIterator(vecDynamicObj);
     Ground* pGround = FindGround();
     const double y = pGround->GetY();
     
-    for ( ; itBomb != end(); ++itBomb)
+   
+    for (; itBomb != end(); ++itBomb)
     {
-        if (*itBomb.GetY() >= y) // Пересечение бомбы с землей
+        if ((*itBomb)->GetY() >= y) // Пересечение бомбы с землей
         {
-            pGround->AddCrater(vecBombs[i]->GetX());
-            CheckDestoyableObjects(vecBombs[i]);
-            DeleteDynamicObj(vecBombs[i]);
+            pGround->AddCrater((*itBomb)->GetX());
+            CheckDestoyableObjects(*itBomb);
+            DeleteDynamicObj(*itBomb);
         }
     }
 
@@ -386,13 +387,14 @@ void SBomber::DropBomb()
 BombIterator SBomber::begin()
 {
     BombIterator it(vecDynamicObj);
+    
 
     return it;
 }
 
 BombIterator SBomber::end()
-{
+{    
     BombIterator it(vecDynamicObj);
-    it.reset();
+    //it.reset();
     return it;
 }

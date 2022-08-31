@@ -7,19 +7,24 @@ class BombIterator
 {
 private:
 
-	std::vector<DynamicObject*> _vecDynamicObj;
+	std::vector<DynamicObject*>& _vecDynamicObj;
 	int curIndex;
-	Bomb* ptr;
+	//Bomb* ptr;
 
 public:
-
-	BombIterator(std::vector<DynamicObject*>& vecDynamicObj) : _vecDynamicObj(vecDynamicObj), curIndex(-1), ptr(nullptr) {}
-	void reset();
+	
+	//BombIterator(std::vector<DynamicObject*>& vecDynamicObj) : _vecDynamicObj(vecDynamicObj), curIndex(-1), ptr(nullptr)
+	BombIterator(std::vector<DynamicObject*>& vecDynamicObj) : _vecDynamicObj(vecDynamicObj), curIndex(-1) 
+	{ 
+		//++(*this); 
+	}
+	//void reset();
 	BombIterator& operator ++();
 	BombIterator& operator --();
-	DynamicObject* operator *();
+	Bomb* operator *();
 	bool operator ==(BombIterator it);
 	bool operator !=(BombIterator it);
+	
 
 
 
