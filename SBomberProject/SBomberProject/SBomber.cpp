@@ -10,6 +10,7 @@
 #include "House.h"
 
 
+
 using namespace std;
 using namespace MyTools;
 
@@ -128,9 +129,10 @@ void SBomber::CheckBombsAndGround()
     itBomb = BombIterator(vecDynamicObj);
     Ground* pGround = FindGround();
     const double y = pGround->GetY();
-    for ( ; itBomb != vecDynamicObj.end() ,++itBomb )
+    
+    for ( ; itBomb != end(); ++itBomb)
     {
-        if (itBomb->GetY() >= y) // Пересечение бомбы с землей
+        if (*itBomb.GetY() >= y) // Пересечение бомбы с землей
         {
             pGround->AddCrater(vecBombs[i]->GetX());
             CheckDestoyableObjects(vecBombs[i]);
@@ -250,23 +252,6 @@ Ground* SBomber::FindGround() const
 //    return vecBombs;
 //}
 
-vector<Bomb*> SBomber::FindAllBombs() const
-{
-    vector<Bomb*> vecBombs;
-    
-    BombIterator itBomb = 
-
-    for (size_t i = 0; i < vecDynamicObj.size(); i++)
-    {
-        Bomb* pBomb = dynamic_cast<Bomb*>(vecDynamicObj[i]);
-        if (pBomb != nullptr)
-        {
-            vecBombs.push_back(pBomb);
-        }
-    }
-
-    return vecBombs;
-}
 
 
 Plane* SBomber::FindPlane() const
