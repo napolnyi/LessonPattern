@@ -1,5 +1,6 @@
 ﻿
 #include <conio.h>
+#include <Windows.h>
 
 #include "SBomber.h"
 #include "MyTools.h"
@@ -29,6 +30,7 @@ int main(void)
         game.CheckObjects();
 
         game.TimeFinish();
+        Sleep(30);
 
     } while (!game.GetExitFlag());
 

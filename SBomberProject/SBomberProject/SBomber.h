@@ -52,7 +52,5 @@ private:
     uint16_t bombsNumber, deltaTime, fps;
     int16_t score;
     
-    
-    BombIterator begin();
-    BombIterator end();
+ 
 };
