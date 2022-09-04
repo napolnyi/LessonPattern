@@ -136,7 +136,7 @@ void SBomber::CheckBombsAndGround()
 
     for (; itBomb <= itBomb_end; ++itBomb)
     {
-        if ((*itBomb)->GetY() <= y) // Пересечение бомбы с землей
+        if ((*itBomb)->GetY() >= y) // Пересечение бомбы с землей
         {
             pGround->AddCrater((*itBomb)->GetX());
             CheckDestoyableObjects(*itBomb);
