@@ -8,6 +8,8 @@
 #include "Ground.h"
 #include "Tank.h"
 #include "House.h"
+#include "HouseBuilderA.h"
+#include "HouseDirector.h"
 
 using namespace std;
 using namespace MyTools;
@@ -59,6 +61,10 @@ SBomber::SBomber()
     vecStaticObj.push_back(pTank);
 
     House * pHouse = new House;
+    HouseDirector* pdir = new HouseDirector;
+    HouseBuilderA* pbild = new HouseBuilderA;
+  
+    House* pHouse = pdir->createHouseA(pbild);
     pHouse->SetWidth(13);
     pHouse->SetPos(80, groundY - 1);
     vecStaticObj.push_back(pHouse);

@@ -4,6 +4,8 @@
 
 #include "DestroyableGroundObject.h"
 #include "HouseBuilderA.h"
+#include "MyTools.h"
+
 
 class House : public DestroyableGroundObject
 {
@@ -17,14 +19,13 @@ public:
 
 	friend class HouseBuilderA;
 	
-protected:
-	//char look[10][10];
-
+	
 
 private:
 
 	const uint16_t score = 40;
 	char look[10][10];
+	MyTools::ConsoleColor color = MyTools::CC_Yellow;
 
 
 };

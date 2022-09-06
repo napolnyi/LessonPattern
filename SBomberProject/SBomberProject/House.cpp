@@ -49,7 +49,7 @@ bool House::isInside(double x1, double x2) const
 
 void House::Draw() const
 {
-	MyTools::SetColor(CC_Yellow);
+	MyTools::SetColor(color);
 	GotoXY(x, y - 7);
 	for (size_t i = 0; i < 10; i++)
 	{
