@@ -3,11 +3,12 @@
 #include "House.h"
 #include "MyTools.h"
 
-class House;
+
 class HouseBuilderA : 
 	public HouseBuilder 
 {
 public:
+	
 	void createWallLeft();
 	void createWallUp();
 	void createWallDown();
