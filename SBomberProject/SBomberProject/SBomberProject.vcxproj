@@ -143,7 +143,6 @@
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="House.cpp" />
     <ClCompile Include="HouseBuilderA.cpp" />
-    <ClCompile Include="HouseDirector.cpp" />
     <ClCompile Include="LevelGUI.cpp" />
     <ClCompile Include="MyTools.cpp" />
     <ClCompile Include="Plane.cpp" />

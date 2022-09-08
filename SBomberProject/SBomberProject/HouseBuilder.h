@@ -8,7 +8,17 @@ class HouseBuilder
 protected:
 	House* house;
 public:
-	HouseBuilder() {}
+	HouseBuilder() 
+	{ house = new House;
+		for (size_t i = 0; i < 10; i++)
+		{
+			for (size_t j = 0; j < 10; j++)
+			{
+				house->look[i][j] = { ' ' };
+			}
+
+		}
+	}
 	virtual ~HouseBuilder() {}
 
 	virtual void createWallLeft() {}
