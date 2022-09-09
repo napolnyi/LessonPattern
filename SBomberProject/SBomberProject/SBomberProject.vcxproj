@@ -139,7 +139,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Abstraction.cpp" />
     <ClCompile Include="Bomb.cpp" />
     <ClCompile Include="CollisionDetectorA.cpp" />
     <ClCompile Include="Ground.cpp" />

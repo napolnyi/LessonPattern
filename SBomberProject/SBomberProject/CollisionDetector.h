@@ -5,13 +5,13 @@
 #include "Ground.h"
 #include "DestroyableGroundObject.h"
 
-class CollisionDetectorA;
+
 
 class CollisionDetector
 {
 public:
 
-    CollisionDetector(CollisionDetectorA* pCollision) : _pCollision(pCollision) {}
+    CollisionDetector() {}
     virtual ~CollisionDetector(){}
 
     virtual bool CheckPlaneAndLevelGUI(Plane* plane, LevelGUI* level) = 0;
@@ -22,7 +22,6 @@ public:
 
     virtual bool CheckDestoyableObjects(Bomb* pBomb, DestroyableGroundObject* destroy) = 0;
 
-protected:
-    CollisionDetectorA* _pCollision;
+
 };
 
