@@ -1,9 +1,17 @@
 #pragma once
+
 #include "CollisionDetector.h"
+
+
+
 class CollisionDetectorA :
     public CollisionDetector
 {
 public:
+
+    CollisionDetectorA() {}
+    ~CollisionDetectorA() {}
+
     bool CheckPlaneAndLevelGUI(Plane* plane, LevelGUI* level) override;
 
 

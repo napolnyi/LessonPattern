@@ -1,4 +1,9 @@
 #include "CollisionDetectorA.h"
+//#include "Plane.h"
+//#include "LevelGUI.h"
+//#include "Bomb.h"
+//#include "Ground.h"
+//#include "DestroyableGroundObject.h"
 
 bool CollisionDetectorA::CheckPlaneAndLevelGUI(Plane* plane, LevelGUI* level)
 {
