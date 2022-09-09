@@ -4,6 +4,8 @@
 
 #include "GameObject.h"
 
+class Visitor;
+
 class DynamicObject : public GameObject 
 {
 public:
@@ -14,6 +16,13 @@ public:
     inline void SetDirection(double dx, double dy) { xDirction = dx; yDirection = dy; }
     
     virtual void Move(uint16_t time) { x += xDirction * speed * time * 0.001; y += yDirection * speed * time * 0.001; };
+
+    double GetSpeed() { return speed; }
+    double GetDirectionX() { return xDirction; }
+    double GetDirectionY() { return yDirection; }
+
+    virtual void _fastcall Accept(const Visitor& v) = 0;
+
 
 protected:
 

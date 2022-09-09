@@ -1,6 +1,7 @@
 #pragma once
 
 #include "DynamicObject.h"
+#include "Visitor.h"
 
 class Plane : public DynamicObject {
 public:
@@ -8,8 +9,10 @@ public:
     void Draw() const override;
 
     inline void ChangePlaneY(double dy) { yDirection += dy; }
+    
+    void _fastcall Accept(const Visitor& v);
 
-private:
+
 
 };
 
