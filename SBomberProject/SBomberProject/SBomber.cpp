@@ -173,22 +173,46 @@ void SBomber::CheckBombsAndGround()
 //
 //}
 
-void SBomber::CheckDestoyableObjects(Bomb * pBomb)
+
+void SBomber::CheckDestoyableObjects(Bomb* pBomb)
 {
     vector<DestroyableGroundObject*> vecDestoyableObjects = FindDestoyableGroundObjects();
     const double size = pBomb->GetWidth();
     const double size_2 = size / 2;
+    
+    CollisionDetector* pCollision = new CollisionDetectorA;
+
     for (size_t i = 0; i < vecDestoyableObjects.size(); i++)
     {
         const double x1 = pBomb->GetX() - size_2;
         const double x2 = x1 + size;
-        if (vecDestoyableObjects[i]->isInside(x1, x2))
+
+        Abstraction* abs = new Abstraction(pBomb, vecDestoyableObjects[i], pCollision);
+
+        if (abs->findDestoyableObjects())
         {
             score += vecDestoyableObjects[i]->GetScore();
             DeleteStaticObj(vecDestoyableObjects[i]);
         }
     }
 }
+
+//void SBomber::CheckDestoyableObjects(Bomb * pBomb)
+//{
+//    vector<DestroyableGroundObject*> vecDestoyableObjects = FindDestoyableGroundObjects();
+//    const double size = pBomb->GetWidth();
+//    const double size_2 = size / 2;
+//    for (size_t i = 0; i < vecDestoyableObjects.size(); i++)
+//    {
+//        const double x1 = pBomb->GetX() - size_2;
+//        const double x2 = x1 + size;
+//        if (vecDestoyableObjects[i]->isInside(x1, x2))
+//        {
+//            score += vecDestoyableObjects[i]->GetScore();
+//            DeleteStaticObj(vecDestoyableObjects[i]);
+//        }
+//    }
+//}
 
 void SBomber::DeleteDynamicObj(DynamicObject* pObj)
 {

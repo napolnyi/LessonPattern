@@ -1,7 +1,6 @@
 #pragma once
 #include "CollisionDetector.h"
-//#include "Bomb.h"
-//#include "Ground.h"
+
 
 
 class Abstraction
