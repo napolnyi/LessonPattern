@@ -46,3 +46,13 @@ void House::Draw() const
 	GotoXY(x, y);
 	cout << "############";
 }
+
+bool House::HandleInsideCheck(double x1, double x2)
+{
+	if (this->isInside(x1, x2))
+	{
+		return true;
+
+	}
+	return false;
+}

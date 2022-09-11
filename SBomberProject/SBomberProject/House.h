@@ -14,6 +14,8 @@ public:
 
 	void Draw() const override;
 
+	bool HandleInsideCheck(double x1, double x2) override;
+
 private:
 
 	const uint16_t score = 40;
