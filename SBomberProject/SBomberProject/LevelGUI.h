@@ -1,6 +1,8 @@
 #pragma once
 
 #include <stdint.h>
+#include <deque>
+#include <string>
 
 #include "GameObject.h"
 
@@ -26,6 +28,9 @@ private:
     uint64_t passedTime, fps;
     uint16_t bombsNumber;
     int16_t score;
+
+    deque<string> message;
+
 };
 
 
