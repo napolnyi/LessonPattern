@@ -6,6 +6,8 @@
 
 #include "GameObject.h"
 
+class Mediator;
+
 class LevelGUI : public GameObject {
 public:
 
@@ -20,6 +22,10 @@ public:
 
     void Draw() const override;
 
+    Mediator* pMediator;
+
+    void BeNotified(std::string message);
+
 private:
 
     uint16_t height;
@@ -29,7 +35,8 @@ private:
     uint16_t bombsNumber;
     int16_t score;
 
-    deque<string> message;
+    std::deque<std::string> message;
+
 
 };
 

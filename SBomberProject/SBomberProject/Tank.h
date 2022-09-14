@@ -1,12 +1,18 @@
 #pragma once
 
 #include <stdint.h>
+#include <string>
 
 #include "DestroyableGroundObject.h"
+
+using namespace std;
 
 class Tank : public DestroyableGroundObject
 {
 public:
+
+	
+	Tank(Mediator* pmed) : pMediator(pmed) {}
 
 	bool __fastcall isInside(double x1, double x2) const override;
 
@@ -14,8 +20,14 @@ public:
 
 	void Draw() const override;
 
+
+	void SendMessage();
+	
+	Mediator* pMediator;
+
 private:
 
 	const uint16_t score = 30;
+	
 };
 

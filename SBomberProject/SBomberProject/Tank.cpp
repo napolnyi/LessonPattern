@@ -1,8 +1,10 @@
 
 #include <iostream>
+#include <string>
 
 #include "Tank.h"
 #include "MyTools.h"
+#include "Mediator.h"
 
 using namespace std;
 using namespace MyTools;
@@ -41,4 +43,12 @@ void Tank::Draw() const
 	cout << "    #####";
 	GotoXY(x,y);
 	cout << " ###########";
+
+}
+
+
+void Tank::SendMessage()
+{
+	pMediator = new Mediator;
+	pMediator->Notify("You'll miss!!!");
 }

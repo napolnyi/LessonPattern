@@ -1,8 +1,11 @@
 #pragma once
 
 #include <stdint.h>
+#include <string>
 
 #include "GameObject.h"
+
+class Mediator;
 
 class DestroyableGroundObject : public GameObject
 {
@@ -12,6 +15,8 @@ public:
 
     virtual inline uint16_t GetScore() const = 0;
 
-protected:
+   static Mediator* pMediator;
+
+
 
 };
