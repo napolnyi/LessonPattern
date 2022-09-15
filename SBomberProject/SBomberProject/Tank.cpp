@@ -32,6 +32,7 @@ bool Tank::isInside(double x1, double x2) const
 	return false;
 }
 
+
 void Tank::Draw() const
 {
 	MyTools::SetColor(CC_Brown);
@@ -43,12 +44,36 @@ void Tank::Draw() const
 	cout << "    #####";
 	GotoXY(x,y);
 	cout << " ###########";
+	
+	int rnd = rand() % 4;
 
+	switch (rnd)
+	{
+	case 0:
+	{
+		pMediator->Notify("You'll miss!!!");
+		break;
+	}
+	case 1: 
+	{
+		pMediator->Notify("you won't get there!!!");
+		break;
+	}
+	case 2: 
+	{
+		pMediator->Notify("muff!!!");
+		break;
+	}
+	case 3:
+	{
+		pMediator->Notify("miss!!!");
+		break;
+	}
+	default:
+		break;
+	}
+	
 }
 
 
-void Tank::SendMessage()
-{
-	pMediator = new Mediator;
-	pMediator->Notify("You'll miss!!!");
-}
+

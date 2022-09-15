@@ -4,6 +4,7 @@
 #include <deque>
 #include <string>
 
+
 #include "GameObject.h"
 
 class Mediator;
@@ -26,6 +27,8 @@ public:
 
     void BeNotified(std::string message);
 
+    
+
 private:
 
     uint16_t height;
@@ -35,7 +38,9 @@ private:
     uint16_t bombsNumber;
     int16_t score;
 
-    std::deque<std::string> message;
+    mutable std::deque<std::string> decMessage;
+   
+    
 
 
 };

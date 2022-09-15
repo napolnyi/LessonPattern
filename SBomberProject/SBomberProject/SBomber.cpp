@@ -8,6 +8,7 @@
 #include "Ground.h"
 #include "Tank.h"
 #include "House.h"
+#include "Mediator.h"
 
 using namespace std;
 using namespace MyTools;
@@ -48,12 +49,16 @@ SBomber::SBomber()
     pGr->SetWidth(width - 2);
     vecStaticObj.push_back(pGr);
 
-    Tank* pTank = new Tank;
+
+    Mediator* pMediator = new Mediator;
+    pMediator->Add(pGUI);
+
+    Tank* pTank = new Tank(pMediator);
     pTank->SetWidth(13);
     pTank->SetPos(30, groundY - 1);
     vecStaticObj.push_back(pTank);
 
-    pTank = new Tank;
+    pTank = new Tank(pMediator);
     pTank->SetWidth(13);
     pTank->SetPos(50, groundY - 1);
     vecStaticObj.push_back(pTank);

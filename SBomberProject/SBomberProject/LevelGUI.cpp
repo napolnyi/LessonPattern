@@ -1,10 +1,16 @@
 #include <iostream>
+#include <string>
 
 #include "LevelGUI.h"
 #include "MyTools.h"
 
 using namespace std;
 using namespace MyTools;
+
+int const COUNTER = 10;
+static int counter = COUNTER;
+static string str;
+
 
 void LevelGUI::Draw() const
 {
@@ -40,6 +46,33 @@ void LevelGUI::Draw() const
     cout << "BombsNum: " << bombsNumber;
     GotoXY(62, 1);
     cout << "Score: " << score;
+
+    GotoXY(18, 18);
+
+    if(!decMessage.empty())
+    {  
+        if (counter >= COUNTER) 
+        {
+            
+            str = decMessage.front();
+            decMessage.pop_back();
+            counter = 0;
+            
+        }
+        std::cout << str;
+       
+        decMessage.pop_front();
+        counter += 1;
+
+        
+    }
+   
+}
+
+void LevelGUI::BeNotified(std::string message)
+{
+    decMessage.push_back(message);
+
 }
 
 void __fastcall LevelGUI::SetParam(uint64_t passedTimeNew, uint64_t fpsNew, uint16_t bombsNumberNew, int16_t scoreNew)

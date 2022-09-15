@@ -1,5 +1,6 @@
 ﻿
 #include <conio.h>
+#include <Windows.h>
 
 #include "SBomber.h"
 #include "MyTools.h"
@@ -27,6 +28,8 @@ int main(void)
         game.DrawFrame();
         game.MoveObjects();
         game.CheckObjects();
+
+        Sleep(30);
 
         game.TimeFinish();
 
