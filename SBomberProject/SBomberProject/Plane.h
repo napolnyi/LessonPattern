@@ -5,11 +5,20 @@
 class Plane : public DynamicObject {
 public:
 
+  
     void Draw() const override;
 
     inline void ChangePlaneY(double dy) { yDirection += dy; }
 
-private:
+    virtual void DrawBody() const  = 0;
+    virtual void DrawWings() const = 0;
+    virtual void DrawTail() const = 0;
+
+    //void DrawBody() const;
+    //void DrawWings() const;
+    //void DrawTail() const;
+
+    
 
 };
 

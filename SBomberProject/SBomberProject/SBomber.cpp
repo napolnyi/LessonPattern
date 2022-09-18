@@ -1,6 +1,7 @@
 
 #include <conio.h>
 #include <windows.h>
+#include <random>
 
 #include "MyTools.h"
 #include "SBomber.h"
@@ -8,6 +9,8 @@
 #include "Ground.h"
 #include "Tank.h"
 #include "House.h"
+#include "ColorPlane.h"
+#include "Plane.h"
 
 using namespace std;
 using namespace MyTools;
@@ -24,7 +27,27 @@ SBomber::SBomber()
 {
     WriteToLog(string(__FUNCTION__) + " was invoked");
 
-    Plane* p = new Plane;
+    Plane* pBig = new BigPlane;
+    Plane* pColor = new ColorPlane;
+    Plane* p;
+    
+    random_device rd;
+    mt19937 gen(rd());
+
+    int num = gen()%10;
+    
+    if ( num > 5 )
+    {
+        
+        p = pColor;
+    }
+    else 
+    {
+        p = pBig;
+    }
+
+
+   
     p->SetDirection(1, 0.1);
     p->SetSpeed(4);
     p->SetPos(5, 10);

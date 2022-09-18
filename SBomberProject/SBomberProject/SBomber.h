@@ -7,6 +7,7 @@
 #include "Bomb.h"
 #include "Ground.h"
 #include "Tank.h"
+#include "BigPlane.h"
 
 class SBomber
 {
@@ -35,7 +36,7 @@ private:
     void __fastcall DeleteStaticObj(GameObject* pObj);
 
     Ground * FindGround() const;
-    Plane * FindPlane() const;
+    Plane* FindPlane() const;
     LevelGUI * FindLevelGUI() const;
     std::vector<DestroyableGroundObject*> FindDestoyableGroundObjects() const;
     std::vector<Bomb*> FindAllBombs() const;
