@@ -2,7 +2,9 @@
 
 #include "MyTools.h"
 
-extern FileLogger* logger ;
+class FileLogger;
+
+extern FileLogger* logger;
 
 class FileLogger
 {
