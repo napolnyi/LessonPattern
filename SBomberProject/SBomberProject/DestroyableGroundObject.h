@@ -12,6 +12,6 @@ public:
 
     virtual inline uint16_t GetScore() const = 0;
 
-protected:
+
 
 };

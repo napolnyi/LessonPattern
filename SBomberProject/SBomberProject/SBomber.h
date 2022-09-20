@@ -8,6 +8,8 @@
 #include "Ground.h"
 #include "Tank.h"
 
+class SBomberImpl;
+
 class SBomber
 {
 public:
@@ -15,7 +17,7 @@ public:
     SBomber();
     ~SBomber();
     
-    inline bool GetExitFlag() const { return exitFlag; }
+    bool GetExitFlag() const;
 
     void ProcessKBHit();
     void TimeStart();
@@ -27,27 +29,31 @@ public:
 
 private:
 
-    void CheckPlaneAndLevelGUI();
-    void CheckBombsAndGround();
-    void __fastcall CheckDestoyableObjects(Bomb* pBomb);
+   
+    SBomberImpl* sBomberImpl;
 
-    void __fastcall DeleteDynamicObj(DynamicObject * pBomb);
-    void __fastcall DeleteStaticObj(GameObject* pObj);
+    //void CheckPlaneAndLevelGUI();
+    //void CheckBombsAndGround();
+    //void __fastcall CheckDestoyableObjects(Bomb* pBomb);
 
-    Ground * FindGround() const;
-    Plane * FindPlane() const;
-    LevelGUI * FindLevelGUI() const;
-    std::vector<DestroyableGroundObject*> FindDestoyableGroundObjects() const;
-    std::vector<Bomb*> FindAllBombs() const;
+    //void __fastcall DeleteDynamicObj(DynamicObject * pBomb);
+    //void __fastcall DeleteStaticObj(GameObject* pObj);
 
-    void DropBomb();
+    //Ground * FindGround() const;
+    //Plane * FindPlane() const;
+    //LevelGUI * FindLevelGUI() const;
+    //std::vector<DestroyableGroundObject*> FindDestoyableGroundObjects() const;
+    //std::vector<Bomb*> FindAllBombs() const;
 
-    std::vector<DynamicObject*> vecDynamicObj;
-    std::vector<GameObject*> vecStaticObj;
-    
-    bool exitFlag;
+    //void DropBomb();
 
-    uint64_t startTime, finishTime, passedTime;
-    uint16_t bombsNumber, deltaTime, fps;
-    int16_t score;
+    //std::vector<DynamicObject*> vecDynamicObj;
+    //std::vector<GameObject*> vecStaticObj;
+    //
+    //bool exitFlag;
+
+    //uint64_t startTime, finishTime, passedTime;
+    //uint16_t bombsNumber, deltaTime, fps;
+    //int16_t score;
+
 };

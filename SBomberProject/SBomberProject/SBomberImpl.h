@@ -1,11 +1,23 @@
 #pragma once
 #include <vector>
 
+#include "Bomb.h"
+#include "Ground.h"
+#include "DestroyableGroundObject.h";
+#include "Tank.h"
+#include "House.h"
+#include "Plane.h"
+#include "LevelGUI.h"
+
+
 
 
 class SBomberImpl
 {
 public:
+
+    SBomberImpl();
+
     void CheckPlaneAndLevelGUI();
     void CheckBombsAndGround();
     void __fastcall CheckDestoyableObjects(Bomb* pBomb);
