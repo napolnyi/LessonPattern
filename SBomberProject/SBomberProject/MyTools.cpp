@@ -70,7 +70,7 @@ namespace MyTools {
 
     //=============================================================================================
 
-    void __fastcall OpenLogFile(const string& FN)
+    /*void __fastcall OpenLogFile(const string& FN)
     {
         logOut.open(FN, ios_base::out);
     }
@@ -115,7 +115,7 @@ namespace MyTools {
         {
             logOut << GetCurDateTime() << " - " << str << d << endl;
         }
-    }
+    }*/
 
     //=============================================================================================
 

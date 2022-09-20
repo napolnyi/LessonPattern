@@ -147,6 +147,7 @@
     <ClCompile Include="Plane.cpp" />
     <ClCompile Include="SBomber.cpp" />
     <ClCompile Include="SBomberProject.cpp" />
+    <ClCompile Include="FileLogger.cpp" />
     <ClCompile Include="Tank.cpp" />
   </ItemGroup>
   <ItemGroup>

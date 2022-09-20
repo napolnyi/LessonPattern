@@ -1,5 +1,6 @@
 ﻿
 #include <conio.h>
+#include <windows.h>
 
 #include "SBomber.h"
 //#include "MyTools.h"
@@ -7,7 +8,7 @@
 
 using namespace std;
 
-FileLogger* logger;
+
 //========================================================================================================================
 
 int main(void)
@@ -30,6 +31,7 @@ int main(void)
         game.DrawFrame();
         game.MoveObjects();
         game.CheckObjects();
+        Sleep(30);
 
         game.TimeFinish();
 
