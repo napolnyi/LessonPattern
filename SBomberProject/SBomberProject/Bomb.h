@@ -6,10 +6,12 @@ class Bomb : public DynamicObject
 {
 public:
 
-	Bomb(Bomb* pbomb) 
+	Bomb(const Bomb& pbomb) 
 	{
-		diff = pbomb->diff;
+		x = pbomb.x+diff;
 	}
+
+	Bomb() {}
 	
 	static const uint16_t BombCost = 10; // стоимость бомбы в очках
 
@@ -19,7 +21,7 @@ public:
 
 private:
 
-	int diff = 0;
+	const int diff = 5;
 
 
 

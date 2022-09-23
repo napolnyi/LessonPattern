@@ -299,8 +299,16 @@ void SBomber::ProcessKBHit()
         DropBomb();
         break;
 
-    default:
+    case 'd':
+        vector<Bomb*> vecBombs = FindAllBombs();
+        
+        Bomb* pBomb = vecBombs.back();
+        Bomb* pBombClone = pBomb->Clone();
+
+        vecDynamicObj.push_back(pBombClone);
+
         break;
+
     }
 }
 

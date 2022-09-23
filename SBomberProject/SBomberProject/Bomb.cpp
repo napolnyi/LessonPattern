@@ -10,7 +10,7 @@ using namespace MyTools;
 void Bomb::Draw() const
 {
     MyTools::SetColor(CC_LightMagenta);
-    GotoXY(x+diff, y);
+    GotoXY(x, y);
     cout << "*";
 }
 
