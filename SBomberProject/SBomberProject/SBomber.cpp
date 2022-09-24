@@ -307,13 +307,16 @@ void SBomber::ProcessKBHit()
 
             vector<Bomb*> vecBombs = FindAllBombs();
 
-            Bomb* pBomb = vecBombs.back();
-            Bomb* pBombClone = pBomb->Clone();
+            if (!vecBombs.empty()) {
+
+                Bomb* pBomb = vecBombs.back();
+                Bomb* pBombClone = pBomb->Clone();
 
 
-            vecDynamicObj.push_back(pBombClone);
-            bombsNumber--;
-            score -= Bomb::BombCost;
+                vecDynamicObj.push_back(pBombClone);
+                bombsNumber--;
+                score -= Bomb::BombCost;
+            }
         }
         
   
