@@ -300,13 +300,23 @@ void SBomber::ProcessKBHit()
         break;
 
     case 'd':
-        vector<Bomb*> vecBombs = FindAllBombs();
+
+        if (bombsNumber > 0)
+        {
+            WriteToLog(string(__FUNCTION__) + " was invoked");
+
+            vector<Bomb*> vecBombs = FindAllBombs();
+
+            Bomb* pBomb = vecBombs.back();
+            Bomb* pBombClone = pBomb->Clone();
+
+
+            vecDynamicObj.push_back(pBombClone);
+            bombsNumber--;
+            score -= Bomb::BombCost;
+        }
         
-        Bomb* pBomb = vecBombs.back();
-        Bomb* pBombClone = pBomb->Clone();
-
-        vecDynamicObj.push_back(pBombClone);
-
+  
         break;
 
     }

@@ -2,13 +2,19 @@
 
 #include "DynamicObject.h"
 
+
 class Bomb : public DynamicObject
 {
 public:
 
 	Bomb(const Bomb& pbomb) 
 	{
-		x = pbomb.x+diff;
+		
+		SetDirection(0.3, 1);
+		speed = pbomb.speed;
+		SetPos(pbomb.GetX()+5, pbomb.GetY());
+		width = pbomb.width;
+		
 	}
 
 	Bomb() {}
